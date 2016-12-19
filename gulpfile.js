@@ -93,7 +93,7 @@ gulp.task('index', function () {
 
 // process html
 gulp.task('html', function(){
-  gulp.src('./dev/**/*.html', '!./dev/index.html')
+  gulp.src('./dev/**/!(index)*.html')
     .pipe(cache(localEnv === 'production' ? prod.htmlify() : gutil.noop()))
     .pipe(cache(localEnv === 'production' ? prod.noHtmlComments() : gutil.noop()))
     .pipe(gulp.dest('./dist/html/'))
@@ -181,7 +181,7 @@ gulp.task('serveLocal', function(){
   });
 
   gulp.watch(['dev/styles.scss', './dev/*.{scss,css,sass,less,stylus}', './dev/**/*.{scss,css,sass,less,stylus}'], ['styles']);
-  gulp.watch(['*.html', './dev/*.html', './dev/**/*.html']).on('change', reload);
+  gulp.watch(['*.html', './dev/*.html', './dev/**/*.html'], ['html','index']).on('change', reload);
   gulp.watch(['./dev/*js', './dev/**/*.js'], ['js-watch']);
 
 });
