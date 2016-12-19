@@ -13,7 +13,7 @@ angular.module("miniRouting").controller("productsCtrl", [
     if ($stateParams.id === 'shoes') {
       $scope.productData = productsSvc.shoeData;
 
-    } else {
+    } else if ($stateParams.id === 'socks'){
       $scope.productData = productsSvc.sockData;
 
     }
