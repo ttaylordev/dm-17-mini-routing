@@ -1,9 +1,11 @@
+(function(){
+  'use strict';
 var miniRouting = angular.module('miniRouting', ['ui.router']);
 
 
 miniRouting.config(['$urlRouterProvider', '$stateProvider', function( $urlRouterProvider, $stateProvider) {
   // $urlRouterProvider.when('/home');
-  $urlRouterProvider.otherwise('/home');
+  $urlRouterProvider.otherwise('/');
 
   var homeState = {
     name: 'home',
@@ -14,7 +16,7 @@ miniRouting.config(['$urlRouterProvider', '$stateProvider', function( $urlRouter
 
   var productsState = {
     name: 'products',
-    url: '/products',
+    url: '/products/:id',
     templateUrl: './html/products/products.html',
     controller: 'productsCtrl'
   }
@@ -29,3 +31,4 @@ miniRouting.config(['$urlRouterProvider', '$stateProvider', function( $urlRouter
   $stateProvider.state(productsState)
   $stateProvider.state(settingsState)
 }]);
+})();

@@ -1,3 +1,5 @@
+(function(){
+  'use strict';
 angular.module("miniRouting").service("productsSvc", function() {
   this.svcTest = 'testing from productsSvc'
   this.shoeData = [
@@ -36,3 +38,4 @@ angular.module("miniRouting").service("productsSvc", function() {
     }
   ];
 });
+})();
